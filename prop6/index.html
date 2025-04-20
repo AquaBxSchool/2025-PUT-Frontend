@@ -4,68 +4,90 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prop 6</title>
-    <link rel="stylesheet" href="src/style.css" />
-
-    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-    <link
-      href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css"
-      rel="stylesheet"
-    />
-
-    <script type="module">
-      // Wait for MapKit JS to be ready to use.
-      const setupMapKitJs = async () => {
-        // If MapKit JS is not yet loaded...
-        if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
-          // ...await <script>'s data-callback (window.initMapKit).
-          await new Promise((resolve) => {
-            window.initMapKit = resolve;
-          });
-          // Clean up.
-          delete window.initMapKit;
-        }
-      };
-
-      /**
-       * Script Entry Point
-       */
-      const main = async () => {
-        await setupMapKitJs();
-
-        const cupertino = new mapkit.CoordinateRegion(
-          new mapkit.Coordinate(37.3316850890998, -122.030067374026),
-          new mapkit.CoordinateSpan(0.167647972, 0.354985255)
-        );
-
-        // Create a map in the element whose ID is "map-container".
-        const map = new mapkit.Map("map-container");
-        map.region = cupertino;
-      };
-
-      main();
-    </script>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
   </head>
-  <body class="bg-[#ffffff]">
-    <header class="flex items-center justify-center py-16">
+  <body class="bg-primary">
+    <div class="absolute top-5 right-5" id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "pl" },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <header class="flex items-center justify-center py-16 md:pt-16 pt-32">
       <img src="/logo.svg" class="h-24" />
     </header>
 
-    <nav class="max-w-3xl w-full m-auto flex items-center justify-center gap-4">
-        <a href="#" class="hover:underline">Lien 1</a>
-        <a href="#" class="hover:underline">Lien 2</a>
-        <a href="#" class="hover:underline">Lien 3</a>
-        <a href="#" class="hover:underline">Lien 4</a>
-        <a href="#" class="hover:underline">Lien 5</a>
+    <nav class="container-nav">
+      <a href="#aktualnosci" class="hover:underline">Aktualnosci</a>
+      <a href="#turnieje" class="hover:underline">Turnieje</a>
+      <a href="#pole" class="hover:underline">Pole</a>
+      <a href="#noclegi" class="hover:underline">Noclegi</a>
+      <a href="#akademia" class="hover:underline">Akademia</a>
+      <a href="#abc-golfa" class="hover:underline">ABC Golfa</a>
+      <a href="#kontakt" class="hover:underline">Kontakt</a>
     </nav>
 
-    <main class="my-8 opacity-100">
+    <main class="my-8 opacity-100 relative">
+      <div
+        style="clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0% 100%)"
+        class="right-1/6 text-white pt-8 p-4 bg-blue-400/80 z-10 absolute w-64"
+      >
+        Pogoda
+        <hr class="my-4" />
+        <div class="flex justify-between items-center">
+          <p>Dzisiaj</p>
+          <span class="text-center degree-symbol">4</span>
+          <img class="scale-150" src="/weather/day.svg" />
+        </div>
+        <hr class="my-4" />
+        <div class="flex justify-between items-center">
+          <div class="flex flex-col">
+            <span class="text-center degree-symbol">4</span>
+            <img class="scale-150" src="/weather/day.svg" />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-center degree-symbol">4</span>
+            <img class="scale-150" src="/weather/day.svg" />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-center degree-symbol">4</span>
+            <img class="scale-150" src="/weather/day.svg" />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-center degree-symbol">4</span>
+            <img class="scale-150" src="/weather/day.svg" />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-center degree-symbol">4</span>
+            <img class="scale-150" src="/weather/day.svg" />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-center degree-symbol">4</span>
+            <img class="scale-150" src="/weather/day.svg" />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-center degree-symbol">4</span>
+            <img class="scale-150" src="/weather/day.svg" />
+          </div>
+        </div>
+      </div>
+
       <section
         style="clip-path: polygon(0 25%, 100% 0%, 100% 100%, 0% 100%)"
-        class="bg-[url(/images/golf1.png)] bg-cover bg-center h-[550px] bg-gray-400 bg-blend-multiply"
+        class="bg-[url(/images/golf1.png)] bg-cover bg-center min-h-[550px] bg-gray-400 bg-blend-multiply"
       ></section>
-      <section class="h-[700px]">
-        <div class="max-w-3xl w-full m-auto py-10 flex flex-col gap-4">
-          <h2 class="">Aktualnosci</h2>
+      <section>
+        <div id="aktualnosci" class="container-section">
+          <h2>Aktualnosci</h2>
           <div>
             <div
               class="flex justify-center w-full h-full py-2 border-b-2 border-gray-200"
@@ -151,40 +173,24 @@
               </div>
             </div>
           </div>
+          <a href="#turnieje" class="next-section"></a>
         </div>
-        <a class="m-auto">
-          <svg
-            class="size-12"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-            />
-          </svg>
-        </a>
       </section>
-      <section class="h-[690px] relative text-white">
+      <section class="relative text-white">
         <div
           style="clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0% 100%)"
-          class="z-[-2] bg-[url(/images/golf2.png)] bg-cover bg-center w-full h-full absolute"
+          class="z-[-2] bg-[url(/images/golf2.jpg)] bg-cover bg-center w-full h-full absolute"
         ></div>
         <div
           style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 76%)"
-          class="z-[-1] bg-[#ff8764]/50 w-full h-[115%] absolute mix-blend-multiply"
+          class="z-[-1] bg-[#ff8764]/50 w-full min-h-[115%] absolute mix-blend-multiply"
         ></div>
-        <div class="max-w-3xl w-full m-auto py-21 flex flex-col gap-8">
+        <div id="turnieje" class="container-section py-21">
           <h2>Turnieje</h2>
           <h3 class="text-3xl">Kalendarz Turnieje 2018</h3>
 
           <div
-            class="flex flex-wrap justify-between items-center gap-12 w-full"
+            class="flex flex-wrap justify-between items-center gap-12 w-full px-4"
           >
             <div class="w-80">
               <h4 class="font-bold">April</h4>
@@ -219,27 +225,11 @@
               </ul>
             </div>
           </div>
-          <a class="m-auto">
-            <svg
-              class="size-12"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-              />
-            </svg>
-          </a>
+          <a href="#pole" class="next-section-white"></a>
         </div>
       </section>
       <section>
-        <div class="max-w-3xl w-full m-auto py-16 flex flex-col gap-8">
+        <div id="pole" class="container-section">
           <h2>Pole</h2>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eos
@@ -253,12 +243,12 @@
       </section>
       <section
         style="clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0% 85%)"
-        class="bg-[#458f98] h-[900px] text-white"
+        class="bg-[#458f98] text-white"
       >
-        <div class="max-w-3xl w-full m-auto py-20 flex flex-col gap-8">
+        <div id="noclegi" class="container-section pb-48!">
           <h2>Noclegi</h2>
 
-          <p class="columns-2">
+          <p class="md:columns-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam natus
             fuga provident, ipsam id nostrum perspiciatis officia atque sunt
             quidem delectus. Accusamus qui voluptatum a magnam? Temporibus eius
@@ -285,33 +275,17 @@
           </p>
 
           <div class="flex w-full gap-2 flex-wrap justify-between">
-            <img class="w-xs aspect-[16/9]" src="/images/hotel1.png" />
-            <img class="w-xs aspect-[16/9]" src="/images/hotel2.png" />
+            <img class="md:w-xs w-full rounded-2xl aspect-[16/9]" src="/images/hotel1.jpg" />
+            <img class="md:w-xs w-full rounded-2xl aspect-[16/9]" src="/images/hotel2.jpg" />
           </div>
-          <a class="m-auto">
-            <svg
-              class="size-12"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-              />
-            </svg>
-          </a>
+          <a href="#akademia" class="next-section-white"></a>
         </div>
       </section>
       <section>
-        <div class="max-w-3xl w-full m-auto pb-32 flex flex-col gap-8">
+        <div id="akademia" class="container-section pt-16!">
           <h2>Akademia</h2>
 
-          <div>
+          <div class="flex justify-center gap-1 w-full">
             <span>Pole 6-CIO Dolkowe</span>
             |
             <span>Pole 6-CIO Dolkowe</span>
@@ -330,32 +304,34 @@
 
           <h3>Renault Cennik</h3>
 
-          <table>
-            <caption class="caption-bottom">
+          <table
+            class="table-auto border-collapse border border-gray-300 w-full text-left"
+          >
+            <caption class="caption-bottom text-sm text-gray-500 mt-2">
               * asterix
             </caption>
             <thead>
-              <tr>
-                <th>Akademia golfa</th>
-                <th>Dla Clzlonkow</th>
-                <th>Dla Gosci</th>
+              <tr class="bg-gray-100">
+                <th class="table-cell">Akademia golfa</th>
+                <th class="table-cell">Dla Czlonkow</th>
+                <th class="table-cell">Dla Gosci</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Green fee*</td>
-                <td>0 PLN</td>
-                <td>30 PLN</td>
+                <td class="table-cell">Green fee*</td>
+                <td class="table-cell">0 PLN</td>
+                <td class="table-cell">30 PLN</td>
               </tr>
-              <tr>
-                <td>Wypoznyczenie</td>
-                <td>10 PLN</td>
-                <td>15 PLN</td>
+              <tr class="bg-gray-50">
+                <td class="table-cell">Wypozyczenie</td>
+                <td class="table-cell">10 PLN</td>
+                <td class="table-cell">15 PLN</td>
               </tr>
             </tbody>
           </table>
 
-          <img src="/images/golf3.png" class="aspect-[4/3] w-11/12 m-auto" />
+          <img src="/images/golf3.jpg" class="rounded-2xl aspect-[4/3] w-11/12 m-auto" />
         </div>
       </section>
       <section class="relative text-white">
@@ -365,9 +341,9 @@
         ></div>
         <div
           style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 76%)"
-          class="z-[-1] bg-[#70b8b4]/50 w-full h-[115%] absolute mix-blend-multiply"
+          class="z-[-1] bg-[#70b8b4]/50 w-full min-h-[115%] absolute mix-blend-multiply"
         ></div>
-        <div class="max-w-3xl w-full m-auto py-32 flex flex-col gap-8">
+        <div id="abc-golfa" class="container-section">
           <h2>Abc Golfa</h2>
 
           <p>
@@ -395,30 +371,14 @@
             rerum? Ipsum, recusandae!
           </p>
 
-          <a class="m-auto">
-            <svg
-              class="size-12"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-              />
-            </svg>
-          </a>
+          <a href="#kontakt" class="next-section-white"></a>
         </div>
       </section>
-      <section class="text-black ">
-        <div class="max-w-3xl w-full m-auto py-32 flex flex-col gap-8">
+      <section class="text-black">
+        <div id="kontakt" class="container-section">
           <h2>Kontakt</h2>
 
-          <div class="flex">
+          <div class="flex md:flex-row flex-col gap-4">
             <div>
               <h3 class="text-xl">Adres pola:</h3>
 
@@ -437,49 +397,24 @@
             </div>
           </div>
 
-          <div class="w-full h-96" id="map"></div>
+          <div class="w-full h-96 rounded-2xl" id="map"></div>
         </div>
       </section>
     </main>
 
     <footer class="bg-gray-800 text-white py-8">
-      <div class="max-w-3xl w-full m-auto flex items-center justify-center gap-4">
-      <img src="/logo.svg" class="h-16 invert" alt="Logo" />
-      <a href="#" class="hover:underline">Lien 1</a>
-      <a href="#" class="hover:underline">Lien 2</a>
-      <a href="#" class="hover:underline">Lien 3</a>
-      <a href="#" class="hover:underline">Lien 4</a>
-      <a href="#" class="hover:underline">Lien 5</a>
+      <img src="/logo.svg" class="h-16 invert m-auto mb-8" alt="Logo" />
+      <div class="container-nav">
+        <a href="#aktualnosci" class="hover:underline">Aktualnosci</a>
+        <a href="#turnieje" class="hover:underline">Turnieje</a>
+        <a href="#pole" class="hover:underline">Pole</a>
+        <a href="#noclegi" class="hover:underline">Noclegi</a>
+        <a href="#akademia" class="hover:underline">Akademia</a>
+        <a href="#abc-golfa" class="hover:underline">ABC Golfa</a>
+        <a href="#kontakt" class="hover:underline">Kontakt</a>
       </div>
     </footer>
 
-    <script>
-      var map = new maplibregl.Map({
-        container: "map",
-        projection: "mercator",
-        style: {
-          version: 8,
-          sources: {
-            light: {
-              type: "raster",
-              tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-              tileSize: 256,
-            },
-          },
-          layers: [
-            {
-              id: "light-layer",
-              type: "raster",
-              source: "light",
-              layout: {
-                visibility: "visible",
-              },
-            },
-          ],
-        },
-        center: [15.3796785, 52.2425239],
-        zoom: 10,
-      });
-    </script>
+    <script type="module" src="./src/main.ts"></script>
   </body>
 </html>

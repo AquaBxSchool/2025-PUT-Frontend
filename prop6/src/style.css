@@ -3,23 +3,53 @@
 @font-face {
   font-family: "Josefin";
   font-style: italic;
-  src: url(/JosefinSans-Italic-VariableFont_wght.ttf) format("ttf");
+  src: url(/JosefinSans-Italic-VariableFont_wght.ttf) format("opentype");
 }
 
 @font-face {
   font-family: "Josefin";
   font-style: normal;
-  src: url(/JosefinSans-VariableFont_wght.ttf) format("ttf");
+  src: url(/JosefinSans-VariableFont_wght.ttf) format("opentype");
+}
+
+html {
+  @apply scroll-smooth;
 }
 
 body {
-  font-family: 'Josefin';
+  font-family: "Josefin";
 }
 
 h2 {
   @apply text-center text-3xl;
 }
 
-.container {
-  @apply max-w-3xl w-full m-auto py-30 flex flex-col gap-8 px-4;
+.degree-symbol {
+  @apply after:content-['°C'] after:text-[0.5rem] after:align-text-top;
+}
+
+.container-section {
+  @apply max-w-3xl w-full m-auto flex px-4;
+  @apply gap-8 flex-col py-32;
+}
+
+.container-nav {
+  @apply max-w-3xl w-full m-auto flex px-4;
+  @apply gap-4 items-center justify-center  flex-wrap;
+}
+
+.table-cell {
+  @apply border border-gray-300 px-4 py-2;
+}
+
+.link-hover {
+  @apply hover:underline;
+}
+
+.next-section {
+  @apply m-auto text-2xl after:content-[url(/arrow-down.svg)];
+}
+
+.next-section-white {
+  @apply m-auto text-2xl after:content-[url(/arrow-down.svg)] invert;
 }

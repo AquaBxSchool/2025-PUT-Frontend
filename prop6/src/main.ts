@@ -1,5 +1,5 @@
-import * as maplibregl from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
+import maplibregl from 'maplibre-gl'
+import 'maplibre-gl/dist/maplibre-gl.css'
 
 new maplibregl.Map({
   container: "map",
@@ -8,7 +8,7 @@ new maplibregl.Map({
     sources: {
       light: {
         type: "raster",
-        tiles: ["https://tile.openstreetmap.de/{z}/{x}/{y}.png"],
+        tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
         tileSize: 256,
       },
     },
