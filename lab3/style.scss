@@ -1,0 +1,13 @@
+@import "buttons";
+@import "mixins";
+
+$color : red;
+
+div {
+    background: $color;
+    color : white;
+
+    .cos {
+        background: green;
+    }
+}

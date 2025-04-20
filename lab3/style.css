@@ -1,0 +1,12 @@
+.btn {
+  background: yellow;
+  padding: 1em;
+}
+
+div {
+  background: red;
+  color: white;
+}
+div .cos {
+  background: green;
+}/*# sourceMappingURL=style.css.map */

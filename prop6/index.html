@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prop 6</title>
+    <link rel="stylesheet" href="src/style.css" />
+
+    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+    <link
+      href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+
+    <script type="module">
+      // Wait for MapKit JS to be ready to use.
+      const setupMapKitJs = async () => {
+        // If MapKit JS is not yet loaded...
+        if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+          // ...await <script>'s data-callback (window.initMapKit).
+          await new Promise((resolve) => {
+            window.initMapKit = resolve;
+          });
+          // Clean up.
+          delete window.initMapKit;
+        }
+      };
+
+      /**
+       * Script Entry Point
+       */
+      const main = async () => {
+        await setupMapKitJs();
+
+        const cupertino = new mapkit.CoordinateRegion(
+          new mapkit.Coordinate(37.3316850890998, -122.030067374026),
+          new mapkit.CoordinateSpan(0.167647972, 0.354985255)
+        );
+
+        // Create a map in the element whose ID is "map-container".
+        const map = new mapkit.Map("map-container");
+        map.region = cupertino;
+      };
+
+      main();
+    </script>
+  </head>
+  <body class="bg-[#ffffff]">
+    <header class="flex items-center justify-center py-16">
+      <img src="/logo.svg" class="h-24" />
+    </header>
+
+    <nav class="max-w-3xl w-full m-auto flex items-center justify-center gap-4">
+        <a href="#" class="hover:underline">Lien 1</a>
+        <a href="#" class="hover:underline">Lien 2</a>
+        <a href="#" class="hover:underline">Lien 3</a>
+        <a href="#" class="hover:underline">Lien 4</a>
+        <a href="#" class="hover:underline">Lien 5</a>
+    </nav>
+
+    <main class="my-8 opacity-100">
+      <section
+        style="clip-path: polygon(0 25%, 100% 0%, 100% 100%, 0% 100%)"
+        class="bg-[url(/images/golf1.png)] bg-cover bg-center h-[550px] bg-gray-400 bg-blend-multiply"
+      ></section>
+      <section class="h-[700px]">
+        <div class="max-w-3xl w-full m-auto py-10 flex flex-col gap-4">
+          <h2 class="">Aktualnosci</h2>
+          <div>
+            <div
+              class="flex justify-center w-full h-full py-2 border-b-2 border-gray-200"
+            >
+              <div class="flex flex-col w-82 p-2">
+                <h5 class="text-sm">19/05/2003</h5>
+                <h4 class="font-bold">Titre</h4>
+              </div>
+              <div class="flex flex-col w-full h-full p-2 text-xs">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+                  quis rerum? Hic dicta obcaecati atque dolorem, architecto
+                  accusantium quos reiciendis velit vitae iure reprehenderit?
+                  Expedita itaque saepe alias obcaecati ad voluptatibus dolores
+                  dicta laboriosam provident illum, officia debitis placeat quos
+                  id. Assumenda commodi et dignissimos tempora earum dolore
+                  veritatis quam.
+                </p>
+                <a>link</a>
+              </div>
+            </div>
+
+            <div
+              class="flex justify-center w-full h-full py-2 border-b-2 border-gray-200"
+            >
+              <div class="flex flex-col w-82 p-2">
+                <h5 class="text-sm">19/05/2003</h5>
+                <h4 class="font-bold">Titre</h4>
+              </div>
+              <div class="flex flex-col w-full h-full p-2 text-xs">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+                  quis rerum? Hic dicta obcaecati atque dolorem, architecto
+                  accusantium quos reiciendis velit vitae iure reprehenderit?
+                  Expedita itaque saepe alias obcaecati ad voluptatibus dolores
+                  dicta laboriosam provident illum, officia debitis placeat quos
+                  id. Assumenda commodi et dignissimos tempora earum dolore
+                  veritatis quam.
+                </p>
+                <a>link</a>
+              </div>
+            </div>
+
+            <div
+              class="flex justify-center w-full h-full py-2 border-b-2 border-gray-200"
+            >
+              <div class="flex flex-col w-82 p-2">
+                <h5 class="text-sm">19/05/2003</h5>
+                <h4 class="font-bold">Titre</h4>
+              </div>
+              <div class="flex flex-col w-full h-full p-2 text-xs">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+                  quis rerum? Hic dicta obcaecati atque dolorem, architecto
+                  accusantium quos reiciendis velit vitae iure reprehenderit?
+                  Expedita itaque saepe alias obcaecati ad voluptatibus dolores
+                  dicta laboriosam provident illum, officia debitis placeat quos
+                  id. Assumenda commodi et dignissimos tempora earum dolore
+                  veritatis quam.
+                </p>
+                <a>link</a>
+              </div>
+            </div>
+
+            <div
+              class="flex justify-center w-full h-full py-2 border-b-2 border-gray-200"
+            >
+              <div class="flex flex-col w-82 p-2">
+                <h5 class="text-sm">19/05/2003</h5>
+                <h4 class="font-bold">Titre</h4>
+              </div>
+              <div class="flex flex-col w-full h-full p-2 text-xs">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+                  quis rerum? Hic dicta obcaecati atque dolorem, architecto
+                  accusantium quos reiciendis velit vitae iure reprehenderit?
+                  Expedita itaque saepe alias obcaecati ad voluptatibus dolores
+                  dicta laboriosam provident illum, officia debitis placeat quos
+                  id. Assumenda commodi et dignissimos tempora earum dolore
+                  veritatis quam.
+                </p>
+                <a>link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="m-auto">
+          <svg
+            class="size-12"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+            />
+          </svg>
+        </a>
+      </section>
+      <section class="h-[690px] relative text-white">
+        <div
+          style="clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0% 100%)"
+          class="z-[-2] bg-[url(/images/golf2.png)] bg-cover bg-center w-full h-full absolute"
+        ></div>
+        <div
+          style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 76%)"
+          class="z-[-1] bg-[#ff8764]/50 w-full h-[115%] absolute mix-blend-multiply"
+        ></div>
+        <div class="max-w-3xl w-full m-auto py-21 flex flex-col gap-8">
+          <h2>Turnieje</h2>
+          <h3 class="text-3xl">Kalendarz Turnieje 2018</h3>
+
+          <div
+            class="flex flex-wrap justify-between items-center gap-12 w-full"
+          >
+            <div class="w-80">
+              <h4 class="font-bold">April</h4>
+              <ul>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+              </ul>
+            </div>
+            <div class="w-80">
+              <h4 class="font-bold">April</h4>
+              <ul>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+              </ul>
+            </div>
+            <div class="w-80">
+              <h4 class="font-bold">April</h4>
+              <ul>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+              </ul>
+            </div>
+            <div class="w-80">
+              <h4 class="font-bold">April</h4>
+              <ul>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+                <li>08.04 -</li>
+              </ul>
+            </div>
+          </div>
+          <a class="m-auto">
+            <svg
+              class="size-12"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+      <section>
+        <div class="max-w-3xl w-full m-auto py-16 flex flex-col gap-8">
+          <h2>Pole</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eos
+            repellat mollitia! Quasi molestiae quam ab laudantium numquam quae
+            exercitationem odit facere culpa reiciendis reprehenderit, esse quis
+            maiores labore architecto! Facere impedit nostrum ea alias omnis
+            provident repellendus id ratione incidunt, ipsam natus repellat
+            pariatur eveniet at reprehenderit odio nesciunt?
+          </p>
+        </div>
+      </section>
+      <section
+        style="clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0% 85%)"
+        class="bg-[#458f98] h-[900px] text-white"
+      >
+        <div class="max-w-3xl w-full m-auto py-20 flex flex-col gap-8">
+          <h2>Noclegi</h2>
+
+          <p class="columns-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam natus
+            fuga provident, ipsam id nostrum perspiciatis officia atque sunt
+            quidem delectus. Accusamus qui voluptatum a magnam? Temporibus eius
+            nesciunt molestiae fugit praesentium laborum dolores omnis sapiente
+            voluptatibus dolorem quod, voluptas, tenetur ratione veniam!
+            Perspiciatis nemo in ipsum quibusdam ratione aspernatur, eligendi et
+            deleniti, iste neque delectus soluta optio at voluptates,
+            repellendus officia? Voluptatibus ducimus deserunt voluptates
+            molestiae eius nisi fugiat saepe, voluptatum accusantium culpa
+            laborum. Quos officiis, consequuntur maiores nostrum laboriosam qui.
+            Et vero neque molestias, vitae ex culpa natus dolores temporibus
+            praesentium quasi saepe debitis, iste dolor exercitationem? Ullam
+            voluptatum facilis sit deserunt odio ex ad, distinctio et, velit
+            dolorem id recusandae, neque consequatur? Autem tempora dicta
+            impedit veritatis, atque neque corrupti rerum. Dolores error hic
+            fugit commodi molestias. Nihil sed tempora nesciunt neque explicabo
+            repellendus excepturi officiis aperiam optio necessitatibus id dolor
+            atque expedita ipsum alias eum facere fugit, eaque laboriosam!
+            Reprehenderit iure illo sequi doloribus, corrupti praesentium eaque
+            enim quisquam, odit tempora consectetur culpa. Sequi beatae saepe
+            quos nisi nulla est facere, animi neque. Porro veritatis deserunt
+            esse nulla? Porro quisquam libero sit nihil modi incidunt, commodi a
+            quam saepe asperiores eligendi officiis totam hic earum mollitia?
+          </p>
+
+          <div class="flex w-full gap-2 flex-wrap justify-between">
+            <img class="w-xs aspect-[16/9]" src="/images/hotel1.png" />
+            <img class="w-xs aspect-[16/9]" src="/images/hotel2.png" />
+          </div>
+          <a class="m-auto">
+            <svg
+              class="size-12"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+      <section>
+        <div class="max-w-3xl w-full m-auto pb-32 flex flex-col gap-8">
+          <h2>Akademia</h2>
+
+          <div>
+            <span>Pole 6-CIO Dolkowe</span>
+            |
+            <span>Pole 6-CIO Dolkowe</span>
+            |
+            <span>Pole 6-CIO Dolkowe</span>
+          </div>
+
+          <p class="text-xs">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+            eos odit, facere maiores amet ad fuga reiciendis officia placeat
+            exercitationem enim nisi in accusamus labore blanditiis architecto
+            inventore rerum maxime id hic libero, dicta quo natus aperiam?
+            Molestiae doloremque, itaque numquam sapiente vel amet ratione
+            dolores similique enim dolor nobis.
+          </p>
+
+          <h3>Renault Cennik</h3>
+
+          <table>
+            <caption class="caption-bottom">
+              * asterix
+            </caption>
+            <thead>
+              <tr>
+                <th>Akademia golfa</th>
+                <th>Dla Clzlonkow</th>
+                <th>Dla Gosci</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Green fee*</td>
+                <td>0 PLN</td>
+                <td>30 PLN</td>
+              </tr>
+              <tr>
+                <td>Wypoznyczenie</td>
+                <td>10 PLN</td>
+                <td>15 PLN</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <img src="/images/golf3.png" class="aspect-[4/3] w-11/12 m-auto" />
+        </div>
+      </section>
+      <section class="relative text-white">
+        <div
+          style="clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0% 100%)"
+          class="z-[-2] bg-[url(/images/golf4.png)] bg-cover bg-center w-full h-full absolute"
+        ></div>
+        <div
+          style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 76%)"
+          class="z-[-1] bg-[#70b8b4]/50 w-full h-[115%] absolute mix-blend-multiply"
+        ></div>
+        <div class="max-w-3xl w-full m-auto py-32 flex flex-col gap-8">
+          <h2>Abc Golfa</h2>
+
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias vero
+            accusamus quae quod inventore fugiat possimus obcaecati, assumenda
+            fugit impedit animi, tempore quis adipisci. Asperiores dolorum
+            temporibus dolor culpa quos.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem
+            eligendi incidunt facere minima? Sapiente, praesentium minus? Sint
+            sed accusamus fugit eveniet, autem vero numquam non tempora
+            quibusdam, sapiente possimus eos illum omnis iure atque assumenda
+            quis commodi provident magnam? Saepe maxime mollitia corrupti vitae
+            dicta quisquam asperiores, molestias odio sunt iste tenetur,
+            doloribus nam delectus necessitatibus ipsum incidunt accusantium
+            voluptatibus quo similique libero quasi laudantium? Fugit maxime
+            dolorem beatae accusantium assumenda! Fuga commodi ab eveniet!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus eos
+            facere illo ratione delectus illum, soluta dignissimos amet tenetur
+            totam corrupti dolores veritatis maxime aliquam. Laudantium et, eius
+            delectus quam, voluptates eum, sit temporibus debitis quis illo
+            rerum? Ipsum, recusandae!
+          </p>
+
+          <a class="m-auto">
+            <svg
+              class="size-12"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+      <section class="text-black ">
+        <div class="max-w-3xl w-full m-auto py-32 flex flex-col gap-8">
+          <h2>Kontakt</h2>
+
+          <div class="flex">
+            <div>
+              <h3 class="text-xl">Adres pola:</h3>
+
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque
+              quia ipsum fugiat laboriosam, vitae qui necessitatibus asperiores
+              maiores, aliquid reprehenderit voluptas ad voluptates eligendi
+              sapiente, at impedit saepe? Provident!
+            </div>
+            <div>
+              <h3 class="text-xl">Dane do faktury</h3>
+
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eaque
+              quia ipsum fugiat laboriosam, vitae qui necessitatibus asperiores
+              maiores, aliquid reprehenderit voluptas ad voluptates eligendi
+              sapiente, at impedit saepe? Provident!
+            </div>
+          </div>
+
+          <div class="w-full h-96" id="map"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="max-w-3xl w-full m-auto flex items-center justify-center gap-4">
+      <img src="/logo.svg" class="h-16 invert" alt="Logo" />
+      <a href="#" class="hover:underline">Lien 1</a>
+      <a href="#" class="hover:underline">Lien 2</a>
+      <a href="#" class="hover:underline">Lien 3</a>
+      <a href="#" class="hover:underline">Lien 4</a>
+      <a href="#" class="hover:underline">Lien 5</a>
+      </div>
+    </footer>
+
+    <script>
+      var map = new maplibregl.Map({
+        container: "map",
+        projection: "mercator",
+        style: {
+          version: 8,
+          sources: {
+            light: {
+              type: "raster",
+              tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+              tileSize: 256,
+            },
+          },
+          layers: [
+            {
+              id: "light-layer",
+              type: "raster",
+              source: "light",
+              layout: {
+                visibility: "visible",
+              },
+            },
+          ],
+        },
+        center: [15.3796785, 52.2425239],
+        zoom: 10,
+      });
+    </script>
+  </body>
+</html>

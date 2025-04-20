@@ -1,0 +1,36 @@
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-button {
+  background: unset;
+  outline: unset;
+  border: 2px solid oklch(39.66% 0.144 26.85);
+  border-radius: 8px;
+  transition: 0.2s;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1/1;
+}
+
+.delete-button:hover {
+  background: oklch(62.97% 0.18 23.84);
+}
+
+html {
+    overflow-y: scroll;
+  }
+
+  body {
+    padding-top: 50px;
+  }
+
+  #todo-list {
+    margin-bottom: 30px;
+  }
+
+  #todo-form {
+    margin-bottom: 50px;
+  }

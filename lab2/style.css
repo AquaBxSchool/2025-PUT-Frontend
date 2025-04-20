@@ -1,0 +1,15 @@
+.cos {
+  color: rgb(9, 8, 80);
+  background-color: hsl(242, 40%, 70%);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+body {
+  background: hsl(0, 0%, 100%);
+}
+
+
+h1 {
+  text-align: center;
+}

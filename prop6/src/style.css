@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Josefin";
+  font-style: italic;
+  src: url(/JosefinSans-Italic-VariableFont_wght.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Josefin";
+  font-style: normal;
+  src: url(/JosefinSans-VariableFont_wght.ttf) format("ttf");
+}
+
+body {
+  font-family: 'Josefin';
+}
+
+h2 {
+  @apply text-center text-3xl;
+}
+
+.container {
+  @apply max-w-3xl w-full m-auto py-30 flex flex-col gap-8 px-4;
+}
