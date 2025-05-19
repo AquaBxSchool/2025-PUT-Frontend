@@ -1,0 +1,39 @@
+{
+	"name": "sveltetodo",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@lucide/svelte": "^0.511.0",
+		"@sveltejs/adapter-node": "^5",
+		"@sveltejs/kit": "^2.21.1",
+		"@sveltejs/vite-plugin-svelte": "^5.0.3",
+		"@tailwindcss/forms": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/vite": "^4.1.7",
+		"bits-ui": "^1.5.2",
+		"clsx": "^2.1.1",
+		"mode-watcher": "^1.0.6",
+		"svelte": "^5.31.0",
+		"svelte-check": "^4.2.1",
+		"svelte-sonner": "^1.0.1",
+		"tailwind-merge": "^3.3.0",
+		"tailwind-variants": "^1.0.0",
+		"tailwindcss": "^4.1.7",
+		"tw-animate-css": "^1.3.0",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.5"
+	},
+	"dependencies": {
+		"@types/node": "^22.15.19",
+		"mongoose": "^8.15.0"
+	}
+}
