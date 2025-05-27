@@ -1,0 +1,15 @@
+services:
+    cms:
+        build:
+            context: ./cms
+        restart: always
+        ports:
+            - 1337:1337
+        volumes:
+            - ./cms:/srv/app
+    frontend:
+        build:
+            context: ./
+        restart: always
+        ports:
+            - 3000:3000
